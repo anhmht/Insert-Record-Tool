@@ -97,5 +97,12 @@ public class User {
 	public void setAvatarImg(String avatarImg) {
 		this.avatarImg = avatarImg;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role
+				+ ", facebookId=" + facebookId + ", phone=" + phone + ", address=" + address + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", email=" + email + ", avatarImg=" + avatarImg + "]";
+	}
 	
 }

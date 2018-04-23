@@ -46,7 +46,6 @@ public class DBManagerService {
 	
 	public void insertCategory(String name) {
 		Category cate = new Category();
-		cate.setCategory_name(name);
 		category.save(cate);
 	}
 }

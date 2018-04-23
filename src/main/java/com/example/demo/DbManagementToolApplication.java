@@ -2,6 +2,8 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -11,13 +13,18 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
 @SpringBootApplication
-public class DbManagementApplication {
+public class DbManagementToolApplication extends SpringBootServletInitializer{
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder  application) {
+		return application.sources(DbManagementToolApplication.class);
+	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(DbManagementApplication.class, args);
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(DbManagementToolApplication.class, args);
 	}
 	
-    @Bean
+	@Bean
     public MongoTemplate mongoTemplate(MongoDbFactory mongoDbFactory,
                                        MongoMappingContext context) {
 
